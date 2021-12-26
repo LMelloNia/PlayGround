@@ -1,21 +1,24 @@
 struct Town {
-    let name = "Angelalend"
-    var citizens = ["Angela","Jack Bauer"]
-    var resources = ["Grain": 100, "Ore": 42, "Wool": 75]
+    let name: String
+    var citizens: [String]
+    var resources: [String: Int]
     
-    func fortufy() {
+    init(name: String, citizens: [String], recources: [String: Int])  {
+        self.name = name
+        self.citizens = citizens
+        self.resources = recources
+    }
+
+    
+    func fortify() {
         print("Defences increased!")
     }
 }
 
-var myTown = Town()
+var anotherTown = Town(name: "Nameless Island", citizens: ["Tom hanks"], recources: ["Coconuts": 100])
 
-print(myTown.citizens)
-print("\(myTown.name) has \(myTown.resources["Grain"]!) bag of grain")
-
-
-myTown.citizens.append("Keanu Reeves")
-print(myTown.citizens.count)
+var ghostTown = Town(name: "Gosty McGhostface", citizens: [], recources: ["Tunbleweed": 1])
 
 
-myTown.fortufy()
+anotherTown.citizens.append("Wilson")
+ghostTown.fortify()
